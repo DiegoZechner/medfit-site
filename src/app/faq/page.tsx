@@ -1,57 +1,76 @@
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { Section } from "@/components/Section";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { ContactCTA } from "@/components/ContactCTA";
+import Link from "next/link";
+
+export const metadata = {
+  title: "Häufige Fragen (FAQ) | med fit wohlfühlschön",
+  description: "Antworten auf häufige Fragen zu unseren Behandlungen, Kosten und Abläufen.",
+};
 
 export default function FaqPage() {
   return (
     <>
-      <Header />
-      <main className="flex-1 bg-white">
-        <Section eyebrow="Fragen" title="Häufige Fragen (FAQ)">
-          <div className="space-y-6 text-sm text-slate-700 md:text-base">
-            <div>
-              <h2 className="text-base font-semibold text-slate-900">
-                Brauche ich für die erste Beratung schon eine konkrete Wunschbehandlung?
-              </h2>
-              <p className="mt-2">
-                Nein. Viele Menschen kommen mit einem Gefühl oder einem Wunschbild zu uns
-                (z. B. weniger Bauch, glattere Haut), ohne schon zu wissen, welche
-                Behandlung dazu passt. Genau das klären wir gemeinsam im Erstgespräch.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-base font-semibold text-slate-900">
-                Ist die Erstberatung wirklich kostenlos?
-              </h2>
-              <p className="mt-2">
-                Ja. Die Erstberatung ist kostenlos und unverbindlich. Sie entscheiden erst
-                im Anschluss, ob und welche Behandlung Sie buchen möchten.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-base font-semibold text-slate-900">
-                Wie viele Sitzungen brauche ich?
-              </h2>
-              <p className="mt-2">
-                Das ist sehr individuell und hängt von Ausgangssituation, Behandlungsart
-                und Zielvorstellung ab. In der Beratung geben wir Ihnen eine realistische
-                Einschätzung und empfehlen Ihnen einen sinnvollen Rahmen.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-base font-semibold text-slate-900">
-                Gibt es Ausfallzeit nach den Behandlungen?
-              </h2>
-              <p className="mt-2">
-                Die meisten Anwendungen sind so konzipiert, dass Sie danach Ihrem Alltag
-                weitgehend normal nachgehen können. Je nach Behandlung und Beruf besprechen
-                wir mit Ihnen, worauf Sie achten sollten.
-              </p>
-            </div>
+      <section className="bg-white py-16 md:py-24 border-b border-line">
+        <div className="page-container max-w-3xl text-center">
+          <h1 className="mb-6 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+            Häufige Fragen
+          </h1>
+          <p className="text-lg text-muted">
+            Hier finden Sie Antworten auf die wichtigsten Fragen zu unseren Behandlungen. 
+            Für spezifische Fragen beraten wir Sie gerne persönlich.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-shell py-16 md:py-24">
+        <div className="page-container max-w-3xl">
+          <FAQAccordion items={[
+            {
+              question: "Brauche ich für die erste Beratung schon eine konkrete Wunschbehandlung?",
+              answer: "Nein. Viele Menschen kommen mit einem Gefühl oder einem Wunschbild zu uns (z. B. weniger Bauch, glattere Haut), ohne schon zu wissen, welche Behandlung dazu passt. Genau das klären wir gemeinsam im Erstgespräch."
+            },
+            {
+              question: "Ist die Erstberatung wirklich kostenlos?",
+              answer: "Ja. Die Erstberatung ist komplett kostenlos und unverbindlich. Sie entscheiden erst im Anschluss, ob und welche Behandlung Sie buchen möchten."
+            },
+            {
+              question: "Wie viele Sitzungen brauche ich?",
+              answer: "Das ist sehr individuell und hängt von Ausgangssituation, Behandlungsart und Zielvorstellung ab. In der Beratung geben wir Ihnen eine realistische Einschätzung und empfehlen Ihnen einen sinnvollen Rahmen."
+            },
+            {
+              question: "Gibt es Ausfallzeit nach den Behandlungen?",
+              answer: "Die meisten Anwendungen sind so konzipiert, dass Sie danach Ihrem Alltag weitgehend normal nachgehen können. Je nach Behandlung besprechen wir mit Ihnen, worauf Sie in den Tagen danach achten sollten."
+            },
+            {
+              question: "Wo finde ich Informationen zu spezifischen Behandlungen?",
+              answer: "Detaillierte Informationen finden Sie auf unseren Themenseiten für dauerhafte Haarentfernung, Gesichtsbehandlungen und Körperformung. Dort sind auch spezifische Fragen zur jeweiligen Behandlung beantwortet."
+            }
+          ]} />
+
+          <div className="mt-12 flex flex-col gap-4 sm:flex-row justify-center">
+            <Link
+              href="/haarentfernung-dornbirn"
+              className="rounded-xl bg-white border border-line px-6 py-3 text-sm font-medium text-ink text-center hover:bg-shell transition-colors"
+            >
+              Zu Haarentfernung
+            </Link>
+            <Link
+              href="/gesichtsbehandlung-dornbirn"
+              className="rounded-xl bg-white border border-line px-6 py-3 text-sm font-medium text-ink text-center hover:bg-shell transition-colors"
+            >
+              Zu Gesichtsbehandlungen
+            </Link>
+            <Link
+              href="/koerperformung-dornbirn"
+              className="rounded-xl bg-white border border-line px-6 py-3 text-sm font-medium text-ink text-center hover:bg-shell transition-colors"
+            >
+              Zu Körperformung
+            </Link>
           </div>
-        </Section>
-      </main>
-      <Footer />
+        </div>
+      </section>
+
+      <ContactCTA />
     </>
   );
 }

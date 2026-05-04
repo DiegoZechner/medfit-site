@@ -1,117 +1,108 @@
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { Section } from "@/components/Section";
+import { LandingHero } from "@/components/LandingHero";
+import { BenefitCard } from "@/components/BenefitCard";
+import { FAQAccordion } from "@/components/FAQAccordion";
+import { ContactCTA } from "@/components/ContactCTA";
 import Link from "next/link";
 
 export default function HomePage() {
   return (
     <>
-      <Header />
-      <main className="flex-1">
-        <Hero />
-        <Section eyebrow="Bereiche" title="Was wir für Sie tun können">
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 text-sm text-slate-700">
-              <h3 className="text-base font-semibold text-slate-900">Strahlendes Gesicht</h3>
-              <p className="mt-2">
-                Anti-Aging-Behandlungen wie CFU Èlife Lifting, Biolifting Byonik® oder
-                Gesichtsbehandlungen für ein frisches, ebenmäßiges Hautbild.
+      <LandingHero
+        eyebrow="med fit wohlfühlschön in Dornbirn"
+        title="Ihre Praxis für ästhetische Behandlungen"
+        subtitle="Haarentfernung, Gesichtsbehandlungen und Körperformung – klar beraten, individuell geplant."
+        primaryCtaLabel="Kostenlose Beratung buchen"
+        primaryCtaHref="/termin"
+      />
+
+      <section className="bg-shell py-16 md:py-24">
+        <div className="page-container max-w-5xl">
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* 1. Haarentfernung */}
+            <div className="flex flex-col rounded-2xl border border-line bg-white p-8 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold text-ink">Dauerhafte Haarentfernung</h3>
+              <p className="mb-6 flex-1 text-muted">
+                Sanfte Lasertechnologie für Gesicht und Körper. Sparen Sie sich das tägliche Rasieren und genießen Sie glatte Haut.
               </p>
               <Link
-                href="/gesicht"
-                className="mt-3 inline-flex text-sm font-medium text-brand hover:text-brand-dark"
+                href="/haarentfernung-dornbirn"
+                className="inline-flex justify-center rounded-xl bg-shell px-4 py-2 text-sm font-medium text-ink border border-line hover:bg-line transition-colors"
               >
-                Mehr zu Gesichtsbehandlungen
+                Mehr erfahren
               </Link>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 text-sm text-slate-700">
-              <h3 className="text-base font-semibold text-slate-900">Definierter Körper</h3>
-              <p className="mt-2">
-                Körperformung, Fettabbau und Hautstraffung mit Kryolipolyse, RF-Sculpting,
-                TriLipo, CFU-Hautstraffung, Wellentherapie und mehr.
+
+            {/* 2. Gesicht */}
+            <div className="flex flex-col rounded-2xl border border-line bg-white p-8 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold text-ink">Gesichtsbehandlungen</h3>
+              <p className="mb-6 flex-1 text-muted">
+                Anti-Aging, Lifting ohne OP und Pflege für ein frisches, ebenmäßiges Hautbild.
               </p>
               <Link
-                href="/koerperformung"
-                className="mt-3 inline-flex text-sm font-medium text-brand hover:text-brand-dark"
+                href="/gesichtsbehandlung-dornbirn"
+                className="inline-flex justify-center rounded-xl bg-shell px-4 py-2 text-sm font-medium text-ink border border-line hover:bg-line transition-colors"
               >
-                Mehr zu Körperbehandlungen
+                Mehr erfahren
               </Link>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 text-sm text-slate-700">
-              <h3 className="text-base font-semibold text-slate-900">Seidig glatte Haut</h3>
-              <p className="mt-2">
-                Dauerhafte Haarentfernung für Gesicht und Körper, damit Rasur und Wachs
-                im Alltag weniger Thema sind.
+
+            {/* 3. Körper */}
+            <div className="flex flex-col rounded-2xl border border-line bg-white p-8 shadow-sm">
+              <h3 className="mb-3 text-xl font-bold text-ink">Körperformung</h3>
+              <p className="mb-6 flex-1 text-muted">
+                Gezielte Hautstraffung und Figurpflege mit modernen, nicht-invasiven Methoden.
               </p>
               <Link
-                href="/haarentfernung"
-                className="mt-3 inline-flex text-sm font-medium text-brand hover:text-brand-dark"
+                href="/koerperformung-dornbirn"
+                className="inline-flex justify-center rounded-xl bg-shell px-4 py-2 text-sm font-medium text-ink border border-line hover:bg-line transition-colors"
               >
-                Mehr zu Haarfreiheit
+                Mehr erfahren
               </Link>
             </div>
           </div>
-        </Section>
-        <Section
-          eyebrow="Behandlungen für Ihren Körper"
-          title="Gezielte Körperformung ohne OP"
-        >
-          <p>
-            Wir kombinieren moderne Technologien wie Kryolipolyse, RF-Sculpting, TriLipo,
-            CFU-Hautstraffung und mehr, um Ihre Körperkonturen sanft zu formen und Ihre
-            Haut zu straffen – ohne chirurgischen Eingriff.
-          </p>
-          <p>
-            Ob Doppelkinn, Bauchfett, Hüftgold, Reiterhosen, Innenschenkel oder
-            Cellulite: In einem persönlichen Gespräch finden wir heraus, welche
-            Anwendung zu Ihrem Ziel passt.
-          </p>
-          <div className="mt-4">
-            <Link
-              href="/koerperformung"
-              className="inline-flex items-center text-sm font-medium text-brand hover:text-brand-dark"
-            >
-              Mehr zu Körperbehandlungen
-            </Link>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 md:py-24 border-y border-line">
+        <div className="page-container max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-ink mb-4">Warum med fit wohlfühlschön?</h2>
           </div>
-        </Section>
-        <Section
-          eyebrow="Ablauf"
-          title="In 3 Schritten zu sichtbaren Ergebnissen"
-        >
-          <ol className="space-y-3">
-            <li>
-              <strong className="font-semibold text-slate-800">
-                1. Kostenlose Erstberatung
-              </strong>
-              <p>
-                Wir nehmen uns Zeit für Ihre Wünsche, klären mögliche Behandlungsoptionen
-                und beantworten alle Fragen – unverbindlich und transparent.
-              </p>
-            </li>
-            <li>
-              <strong className="font-semibold text-slate-800">
-                2. Individueller Behandlungsplan
-              </strong>
-              <p>
-                Gemeinsam legen wir fest, welche Technologie für Ihre Ausgangssituation
-                am sinnvollsten ist und wie viele Sitzungen empfohlen werden.
-              </p>
-            </li>
-            <li>
-              <strong className="font-semibold text-slate-800">
-                3. Schonende Behandlung
-              </strong>
-              <p>
-                Die Anwendungen sind schonend, benötigen in der Regel keine Ausfallzeit
-                und lassen sich gut in den Alltag integrieren.
-              </p>
-            </li>
-          </ol>
-        </Section>
-      </main>
-      <Footer />
+          <div className="grid gap-6 md:grid-cols-2">
+            <BenefitCard
+              title="Kostenlose Erstberatung"
+              description="Wir nehmen uns Zeit für Ihre Wünsche und erstellen einen transparenten Plan ohne versteckte Kosten."
+            />
+            <BenefitCard
+              title="Zentrale Lage in Dornbirn"
+              description="Sie finden uns am Kehlerpark 2 – gut erreichbar und mit entspannten Parkmöglichkeiten."
+            />
+            <BenefitCard
+              title="Moderne Technologien"
+              description="Wir setzen auf erprobte und schonende Verfahren für bestmögliche, natürliche Ergebnisse."
+            />
+            <BenefitCard
+              title="Persönliche Betreuung"
+              description="Bei uns stehen Sie im Mittelpunkt. Wir begleiten Sie vom ersten Gespräch bis zum gewünschten Ziel."
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-shell py-16 md:py-24">
+        <div className="page-container max-w-3xl">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-ink mb-4">Häufige Fragen</h2>
+          </div>
+          <FAQAccordion items={[
+            { question: "Ist die Erstberatung wirklich kostenlos?", answer: "Ja. Die Erstberatung ist komplett kostenlos und unverbindlich. Sie entscheiden erst im Anschluss, ob und welche Behandlung Sie buchen möchten." },
+            { question: "Brauche ich schon eine konkrete Wunschbehandlung?", answer: "Nein. Viele Kunden kommen mit einem allgemeinen Wunschbild (z. B. weniger Rasieren, frischeres Gesicht) zu uns. Wir beraten Sie zu den passenden Möglichkeiten." },
+            { question: "Wie buche ich einen Termin?", answer: "Sie können ganz einfach unser Online-Formular nutzen, uns anrufen oder eine E-Mail schreiben." }
+          ]} />
+        </div>
+      </section>
+
+      <ContactCTA />
     </>
   );
 }

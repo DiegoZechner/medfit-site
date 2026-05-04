@@ -7,14 +7,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          DEFAULT: "#1f6f8b",
-          light: "#51a0bd",
-          dark: "#124055"
-        }
+        aqua: "#4EBCCB",
+        slate: "#2C3E50",
+        shell: "#F8F9FA",
+        sand: "#D4C4B5",
+        ink: "#17212B",
+        muted: "#5F6B76",
+        line: "#E4E8EB"
+      },
+      fontFamily: {
+        sans: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-cormorant)', 'Georgia', 'serif'],
       }
     }
   },
   plugins: []
 };
-
