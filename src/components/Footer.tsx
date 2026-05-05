@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SocialContactBar } from "./SocialContactBar";
 
 export function Footer() {
   return (
@@ -8,19 +9,13 @@ export function Footer() {
           {/* Kontakt / NAP */}
           <div className="flex flex-col gap-4 text-sm text-shell/80">
             <h3 className="text-base font-semibold text-white">Kontakt</h3>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 mb-2">
               <span className="font-medium text-white">med fit wohlfühlschön</span>
               <span>Am Kehlerpark 2</span>
               <span>A-6850 Dornbirn</span>
             </div>
-            <div className="flex flex-col gap-1 mt-2">
-              <a href="tel:+436781330011" className="hover:text-aqua transition-colors">
-                +43 678 133 00 11
-              </a>
-              <a href="mailto:office@med-fit.com" className="hover:text-aqua transition-colors">
-                office@med-fit.com
-              </a>
-            </div>
+            
+            <SocialContactBar />
           </div>
 
           {/* Behandlungen */}

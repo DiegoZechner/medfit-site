@@ -3,71 +3,17 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { ContactCTA } from "@/components/ContactCTA";
 import { TrustChips } from "@/components/TrustChips";
+import { ReviewCarousel } from "@/components/ReviewCarousel";
 
 export const metadata: Metadata = {
   title: "Über uns | med fit wohlfühlschön Dornbirn",
   description:
-    "Lernen Sie das Team von med fit wohlfühlschön in Dornbirn kennen. Seit über 25 Jahren begleiten wir Kundinnen und Kunden mit Erfahrung, Beratung und modernen Behandlungen für Gesicht, Körper und Haarentfernung.",
-  openGraph: {
-    title: "Über uns | med fit wohlfühlschön Dornbirn",
-    description:
-      "Lernen Sie das Team von med fit wohlfühlschön in Dornbirn kennen. Seit über 25 Jahren begleiten wir Kundinnen und Kunden mit Erfahrung, Beratung und modernen Behandlungen für Gesicht, Körper und Haarentfernung.",
-  },
+    "Lernen Sie das Team von med fit wohlfühlschön in Dornbirn kennen. Seit dem Jahr 2000 begleiten wir Kundinnen und Kunden mit Erfahrung, Beratung und modernen Behandlungen.",
 };
 
 export default function AboutPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "AboutPage",
-            "mainEntity": {
-              "@type": "BeautySalon",
-              "name": "med fit wohlfühlschön",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Am Kehlerpark 2",
-                "addressLocality": "Dornbirn",
-                "postalCode": "6850",
-                "addressCountry": "AT"
-              },
-              "telephone": "+436781330011",
-              "email": "office@med-fit.com",
-              "employee": [
-                {
-                  "@type": "Person",
-                  "name": "Herbert F. Graf",
-                  "jobTitle": "Geschäftsführer · Bodyforming & KryoShape"
-                },
-                {
-                  "@type": "Person",
-                  "name": "Andrea Graf",
-                  "jobTitle": "Byonik · Hautpflege · Organisation"
-                },
-                {
-                  "@type": "Person",
-                  "name": "Gabriele Strobl",
-                  "jobTitle": "Dauerhafte Haarentfernung"
-                },
-                {
-                  "@type": "Person",
-                  "name": "Yvonne Wetzel",
-                  "jobTitle": "Kosmetik · Haarentfernung · CFU-HIFU"
-                },
-                {
-                  "@type": "Person",
-                  "name": "Linda Graf",
-                  "jobTitle": "Back Office · Terminverwaltung · Onlinemarketing"
-                }
-              ]
-            }
-          }),
-        }}
-      />
-
       {/* 1. Hero section */}
       <section className="bg-white py-16 md:py-24 border-b border-line">
         <div className="page-container max-w-4xl text-center">
@@ -78,16 +24,16 @@ export default function AboutPage() {
             med fit wohlfühlschön in Dornbirn
           </h1>
           <p className="mx-auto mb-8 max-w-3xl text-lg text-muted md:text-xl">
-            Seit über 25 Jahren steht bei med fit wohlfühlschön der Mensch im Mittelpunkt. Unser Team verbindet Erfahrung, Fachwissen und Herzlichkeit, um Schönheit, Wohlbefinden und moderne Behandlungen individuell zu begleiten.
+            Seit dem Jahr 2000 steht bei med fit wohlfühlschön der Mensch im Mittelpunkt. Unser Team verbindet Erfahrung, Fachwissen und Herzlichkeit, um Schönheit, Wohlbefinden und moderne Behandlungen individuell zu begleiten.
           </p>
 
           <div className="mb-10 flex justify-center">
             <TrustChips
               items={[
-                "Seit über 25 Jahren",
-                "Standort Dornbirn",
+                "Seit 2000 in Dornbirn",
                 "Persönliche Beratung",
                 "Gesicht · Körper · Haarentfernung",
+                "Moderne Technologien"
               ]}
             />
           </div>
@@ -100,10 +46,10 @@ export default function AboutPage() {
               Kostenlose Beratung buchen
             </Link>
             <Link
-              href="/haarentfernung-dornbirn"
+              href="#team"
               className="w-full sm:w-auto rounded-xl border border-line bg-white px-8 py-3.5 text-base font-medium text-slate hover:bg-shell transition-colors text-center"
             >
-              Behandlungen ansehen
+              Team kennenlernen
             </Link>
           </div>
         </div>
@@ -119,34 +65,37 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-6 text-lg text-muted leading-relaxed">
                 <p>
-                  Mit Leidenschaft, Einfühlungsvermögen und Innovationsgeist setzen wir auf Qualität, Vertrauen und individuelle Betreuung. Ob klassische Anwendungen oder moderne apparative Behandlungen – wir freuen uns, Sie in unserem Studio in Dornbirn begrüßen zu dürfen und Sie langfristig zu begleiten.
+                  Mit Leidenschaft, Einfühlungsvermögen und Innovationsgeist setzen wir auf Qualität, Vertrauen und individuelle Betreuung. Ob klassische Anwendungen oder modernste apparative Behandlungen für dauerhafte Haarentfernung, Hautstraffung und Körperformung – wir freuen uns, Sie in unserer Praxis in Dornbirn begrüßen zu dürfen.
+                </p>
+                <p>
+                  Sicherheit und Hygiene stehen dabei an oberster Stelle. Wir arbeiten ausschließlich mit zertifizierten, erprobten Technologien.
                 </p>
               </div>
             </div>
             
             {/* Location Card */}
-            <div className="rounded-2xl border border-line bg-white p-8 shadow-sm flex flex-col justify-center">
-              <h3 className="mb-4 text-xl font-bold text-slate">Kontakt</h3>
+            <div className="rounded-2xl border border-line bg-white p-8 shadow-sm flex flex-col justify-center text-center">
+              <h3 className="mb-4 text-xl font-bold text-slate">Unsere Praxis</h3>
               <div className="space-y-2 text-sm text-ink mb-6">
                 <p className="font-semibold">med fit wohlfühlschön</p>
                 <p>Am Kehlerpark 2</p>
                 <p>A-6850 Dornbirn</p>
               </div>
-              <div className="space-y-2 text-sm">
-                <a href="tel:+436781330011" className="block text-aqua hover:underline">
-                  +43 678 133 00 11
-                </a>
-                <a href="mailto:office@med-fit.com" className="block text-aqua hover:underline">
-                  office@med-fit.com
-                </a>
-              </div>
+              <a
+                href="https://www.google.com/maps/place/med+fit+wohlf%C3%BChlsch%C3%B6n./@47.4169536,9.7491651,1524m/data=!3m3!1e3!4b1!5s0x479b6b455c6bb0e9:0x5a787c663f178462!4m6!3m5!1s0x479b6b4556deae85:0x2e0b46353abcba0a!8m2!3d47.4169536!4d9.75174!16s%2Fg%2F1tjv2gxx?hl=de&entry=ttu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full justify-center rounded-xl bg-ink px-4 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-slate transition-colors"
+              >
+                Route planen
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* 3. Team section */}
-      <section className="bg-white py-20 md:py-32 border-b border-line">
+      <section id="team" className="bg-white py-20 md:py-32 border-b border-line scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-20 text-center">
             <h2 className="mb-6 text-3xl font-bold text-ink md:text-4xl">Unser Team</h2>
@@ -249,25 +198,31 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="bg-white py-16 md:py-24 border-b border-line">
+        <div className="page-container">
+          <ReviewCarousel />
+        </div>
+      </section>
+
       {/* 5. Final CTA section */}
-      <section className="bg-slate py-16 md:py-24">
-        <div className="page-container max-w-3xl text-center">
-          <h2 className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+      <section className="bg-aqua py-16 md:py-24 text-white text-center px-4">
+        <div className="page-container max-w-3xl">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
             Lernen Sie uns persönlich kennen
           </h2>
-          <p className="mx-auto mb-8 text-lg text-shell/80">
+          <p className="mx-auto mb-8 text-lg text-white/90">
             Ob Haarentfernung, Gesichtsbehandlung oder Körperformung – wir nehmen uns Zeit für Ihre Fragen und beraten Sie individuell.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/termin"
-              className="w-full sm:w-auto rounded-xl bg-aqua px-8 py-3.5 text-base font-medium text-white shadow-sm hover:opacity-90 transition-colors"
+              className="w-full sm:w-auto rounded-xl bg-white px-8 py-3.5 text-base font-medium text-ink shadow-sm hover:bg-shell transition-colors"
             >
               Kostenlose Beratung buchen
             </Link>
             <a
               href="tel:+436781330011"
-              className="w-full sm:w-auto rounded-xl border border-shell/20 bg-white/5 px-8 py-3.5 text-base font-medium text-white hover:bg-white/10 transition-colors"
+              className="w-full sm:w-auto rounded-xl border-2 border-white/30 bg-transparent px-8 py-3.5 text-base font-medium text-white hover:bg-white/10 transition-colors"
             >
               Jetzt anrufen
             </a>
@@ -337,9 +292,7 @@ function ValueCard({ title, text }: { title: string, text: string }) {
   return (
     <div className="rounded-2xl border border-line bg-white p-6 shadow-sm text-center flex flex-col items-center">
       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-sand/20 text-slate">
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-        </svg>
+        <span className="text-xl">✨</span>
       </div>
       <h3 className="mb-3 text-lg font-bold text-slate">{title}</h3>
       <p className="text-sm text-muted">{text}</p>

@@ -1,154 +1,103 @@
-import { Metadata } from "next";
 import { LandingHero } from "@/components/LandingHero";
-import { BenefitCard } from "@/components/BenefitCard";
-import { ProcessSteps } from "@/components/ProcessSteps";
 import { FAQAccordion } from "@/components/FAQAccordion";
-import { ContactCTA } from "@/components/ContactCTA";
-import { StickyMobileCTA } from "@/components/StickyMobileCTA";
-import { SchemaJsonLd } from "@/components/SchemaJsonLd";
+import { TreatmentDetailAccordion } from "@/components/TreatmentDetailAccordion";
+import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Gesichtsbehandlung Dornbirn | Anti-Aging & Hautbild | med fit",
-  description: "Gesichtsbehandlungen, Anti-Aging und Lifting ohne OP in Dornbirn. Individuelle Beratung für ein frisches, gepflegtes Hautbild bei med fit wohlfühlschön.",
-  alternates: {
-    canonical: "/gesichtsbehandlung-dornbirn",
-  },
-};
-
-export default function GesichtsbehandlungLandingPage() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BeautySalon",
-    "name": "med fit wohlfühlschön",
-    "url": "https://medfit-site.vercel.app/gesichtsbehandlung-dornbirn",
-    "telephone": "+43 678 133 00 11",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Am Kehlerpark 2",
-      "addressLocality": "Dornbirn",
-      "postalCode": "6850",
-      "addressCountry": "AT"
+export default function GesichtsbehandlungPage() {
+  const treatments = [
+    {
+      title: "CFU ÈLIFE HIFU Facelifting",
+      shortDesc: "Hautstraffung mit hochfokussiertem Ultraschall – für definiertere Konturen und natürliche Festigung.",
+      benefits: [
+        "Lifting ohne OP",
+        "Keine klassische Ausfallzeit",
+        "Gesicht, Hals, Dekolleté und Körper möglich",
+        "Natürliche Stimulation der Kollagenproduktion"
+      ],
+      forWhom: "Ideal für reifere Haut, bei Konturverlust oder als präventives Anti-Aging.",
+      priceLink: "/preise#gesicht",
+      bookLink: "/termin",
+      bookLabel: "CFU Beratung buchen"
     },
-    "description": "Gesichtsbehandlungen, Anti-Aging und Lifting ohne OP in Dornbirn. Individuelle Beratung für ein frisches, gepflegtes Hautbild bei med fit wohlfühlschön."
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Für wen sind die Gesichtsbehandlungen geeignet?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Unsere Behandlungen eignen sich für alle, die ihr Hautbild verbessern, erfrischen oder pflegen möchten. Jeder Hauttyp wird in der Erstberatung individuell analysiert."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Wie schnell sehe ich ein Ergebnis?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ein gepflegteres, frischeres Gefühl ist oft direkt nach der Behandlung spürbar. Langfristige Verbesserungen hängen von der Art der Behandlung und dem individuellen Hautbild ab."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Was kostet eine Gesichtsbehandlung?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Der Preis variiert je nach Umfang und Art der Behandlung (z.B. CFU Lifting, Byonik oder Microdermabrasion). In der kostenlosen Beratung erstellen wir ein individuelles Angebot."
-        }
-      }
-    ]
-  };
+    {
+      title: "BYONIK Biolifting mit Hyaluron",
+      shortDesc: "Laserlicht und Hyaluron für Feuchtigkeit, Volumen, Elastizität und strahlenden Teint.",
+      benefits: [
+        "Schmerzfrei und entspannend",
+        "Einschleusung von hochwertigem Hyaluron",
+        "Frischer Teint und sofortiger Glow-Effekt",
+        "Verbesserung der Hautelastizität"
+      ],
+      forWhom: "Für alle Hauttypen, besonders bei Feuchtigkeitsverlust und ersten Fältchen.",
+      priceLink: "/preise#gesicht",
+      bookLink: "/termin",
+      bookLabel: "Byonik anfragen"
+    },
+    {
+      title: "Microdermabrasion",
+      shortDesc: "Sanfte Hauterneuerung für feinere Poren, frischeren Teint und sichtbar glattere Haut.",
+      benefits: [
+        "Hautbildverfeinerung",
+        "Porenverfeinerung",
+        "Abtragung abgestorbener Hautschüppchen",
+        "Frischer Glow"
+      ],
+      forWhom: "Zur Auffrischung des Teints und bei großporiger oder leicht unreiner Haut.",
+      priceLink: "/preise#gesicht",
+      bookLink: "/termin",
+      bookLabel: "Microdermabrasion buchen"
+    },
+    {
+      title: "BYONIK Blue Light",
+      shortDesc: "Für unreine Haut, Akne und barrieregeschädigte Haut.",
+      benefits: [
+        "Sanfte antibakterielle Wirkung",
+        "Unterstützt die natürliche Regeneration",
+        "Geeignet bei Problemhaut",
+        "Beruhigend bei Rötungen"
+      ],
+      forWhom: "Bei Akne, Entzündungen oder sensibler, gestresster Haut.",
+      priceLink: "/preise#gesicht",
+      bookLink: "/termin",
+      bookLabel: "Problemhaut beraten lassen"
+    }
+  ];
 
   return (
     <>
-      <SchemaJsonLd schema={schema} />
-      <SchemaJsonLd schema={faqSchema} />
-      
       <LandingHero
-        eyebrow="med fit wohlfühlschön · Am Kehlerpark 2 · Dornbirn"
+        eyebrow="Glow & Anti-Aging"
         title="Gesichtsbehandlungen & Anti-Aging in Dornbirn"
-        subtitle="Für ein frisches, gepflegtes Hautbild – individuell beraten und ohne künstlichen Look."
+        subtitle="Für straffere Haut, frischen Teint und natürliche Ergebnisse – ohne OP."
         primaryCtaLabel="Kostenlose Beratung buchen"
-        primaryCtaHref="/termin?behandlung=gesicht"
-        secondaryCtaLabel="Preise ansehen"
-        secondaryCtaHref="/preise#gesicht"
-        trustItems={[
-          "Lifting ohne OP",
-          "Individuelle Hautanalyse",
-          "Kostenlose Erstberatung",
-          "Standort Dornbirn"
-        ]}
+        primaryCtaHref="/termin"
+        secondaryCtaLabel="Behandlungen ansehen"
+        secondaryCtaHref="#treatments"
       />
 
-      <section className="bg-shell py-16 md:py-24">
-        <div className="page-container max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-ink mb-4">Kurz erklärt: Unsere Behandlungen</h2>
-          <p className="text-lg text-muted mb-12">
-            Wir bieten moderne Methoden, die die natürliche Schönheit unterstützen.
-          </p>
-          <div className="grid gap-6 md:grid-cols-2">
-            <BenefitCard
-              title="CFU Èlife Lifting ohne OP"
-              description="Ultraschall-Technologie, die die Hautstraffung unterstützen kann, ohne Ausfallzeiten."
-            />
-            <BenefitCard
-              title="Biolifting Byonik"
-              description="Laser-Hyaluron-Behandlung für ein frischeres und gut versorgtes Hautgefühl."
-            />
-            <BenefitCard
-              title="Microdermabrasion"
-              description="Sanftes Peeling für ein klares Hautbild, das die Aufnahmefähigkeit für Pflegeprodukte verbessert."
-            />
-            <BenefitCard
-              title="Klassische Gesichtsbehandlungen"
-              description="Tiefenreinigung und Pflege, exakt auf die aktuellen Bedürfnisse Ihrer Haut abgestimmt."
-            />
+      <section id="treatments" className="bg-shell py-16 md:py-24">
+        <div className="page-container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-ink mb-4">Unsere Methoden für Ihr Gesicht</h2>
+            <p className="text-muted text-lg max-w-2xl mx-auto">
+              Innovative Technologien für sichtbare Ergebnisse. Wir beraten Sie gerne, welche Methode am besten zu Ihren Zielen passt.
+            </p>
+          </div>
+          
+          <TreatmentDetailAccordion treatments={treatments} />
+
+          <div className="mt-16 text-center bg-white p-8 rounded-3xl border border-line shadow-sm max-w-3xl mx-auto">
+            <h3 className="text-2xl font-bold text-ink mb-3">Unsicher, welche Gesichtsbehandlung passt?</h3>
+            <p className="text-muted mb-6">Wir analysieren Ihre Haut und erstellen einen individuellen Behandlungsplan.</p>
+            <Link
+              href="/termin"
+              className="inline-flex justify-center items-center rounded-xl bg-aqua px-8 py-3.5 font-medium text-white shadow-md hover:opacity-90 transition-colors"
+            >
+              Kostenlose Beratung buchen
+            </Link>
           </div>
         </div>
       </section>
-
-      <section className="bg-white py-16 md:py-24 border-y border-line">
-        <div className="page-container max-w-5xl">
-          <h2 className="text-3xl font-bold text-center text-ink mb-12">Wie läuft es ab?</h2>
-          <ProcessSteps
-            steps={[
-              {
-                title: "Kostenlose Hautanalyse",
-                description: "Wir betrachten Ihr Hautbild im Detail und besprechen Ihre Wünsche."
-              },
-              {
-                title: "Behandlungskonzept",
-                description: "Sie erhalten eine Empfehlung, welche Methode am besten für Sie geeignet ist."
-              },
-              {
-                title: "Wohlfühlen & Pflegen",
-                description: "Die Behandlung erfolgt in entspannter Atmosphäre – für ein sichtbares, gepflegtes Ergebnis."
-              }
-            ]}
-          />
-        </div>
-      </section>
-
-      <section className="bg-shell py-16 md:py-24">
-        <div className="page-container max-w-3xl">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-ink mb-4">Häufige Fragen</h2>
-          </div>
-          <FAQAccordion items={[
-            { question: "Für wen sind die Gesichtsbehandlungen geeignet?", answer: "Unsere Behandlungen eignen sich für alle, die ihr Hautbild verbessern, erfrischen oder pflegen möchten. Jeder Hauttyp wird in der Erstberatung individuell analysiert." },
-            { question: "Wie schnell sehe ich ein Ergebnis?", answer: "Ein gepflegteres, frischeres Gefühl ist oft direkt nach der Behandlung spürbar. Langfristige Verbesserungen hängen von der Art der Behandlung und dem individuellen Hautbild ab." },
-            { question: "Was kostet eine Gesichtsbehandlung?", answer: "Der Preis variiert je nach Umfang und Art der Behandlung (z.B. CFU Lifting, Byonik oder Microdermabrasion). In der kostenlosen Beratung erstellen wir ein individuelles Angebot." }
-          ]} />
-        </div>
-      </section>
-
-      <ContactCTA title="Bereit für ein frischeres Hautbild?" />
-      
-      <StickyMobileCTA />
     </>
   );
 }
